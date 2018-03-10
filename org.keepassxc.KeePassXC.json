@@ -25,7 +25,12 @@
     /* KeePassHTTP */
     "--share=network",
     /* YubiKey USB access */
-    "--device=all"
+    "--device=all",
+    /* KeePassXC-Browser */
+    "--filesystem=xdg-config/google-chrome/NativeMessagingHosts",
+    "--filesystem=xdg-config/chromium/NativeMessagingHosts",
+    "--filesystem=~/.mozilla/native-messaging-hosts",
+    "--filesystem=xdg-config/vivaldi/NativeMessagingHosts"
   ],
   "cleanup": [
     "*.a",
@@ -57,6 +62,10 @@
         {
           "type": "patch",
           "path": "keepassxc-flatpak-dist-type.patch"
+        },
+        {
+          "type": "patch",
+          "path": "keepassxc-browser.patch"
         }
       ],
       "post-install": [

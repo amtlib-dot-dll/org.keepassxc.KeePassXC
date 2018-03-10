@@ -1,0 +1,17 @@
+diff --git a/src/browser/NativeMessagingBase.cpp b/src/browser/NativeMessagingBase.cpp
+index 743953e9..740b8508 100644
+--- a/src/browser/NativeMessagingBase.cpp
++++ b/src/browser/NativeMessagingBase.cpp
+@@ -130,10 +130,10 @@ void NativeMessagingBase::sendReply(const QString& reply)
+ QString NativeMessagingBase::getLocalServerPath() const
+ {
+ #if defined(Q_OS_WIN)
+-    return QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/kpxc_server";
++    return QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/app/org.keepassxc.KeePassXC/kpxc_server";
+ #elif defined(Q_OS_UNIX) && !defined(Q_OS_MAC)
+     // Use XDG_RUNTIME_DIR instead of /tmp/ if it's available
+-    QString path = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation) + "/kpxc_server";
++    QString path = QStandardPaths::writableLocation(QStandardPaths::RuntimeLocation) + "/app/org.keepassxc.KeePassXC/kpxc_server";
+     return path.isEmpty() ? "/tmp/kpxc_server" : path;
+ #else   // Q_OS_MAC and others
+     return "/tmp/kpxc_server";
